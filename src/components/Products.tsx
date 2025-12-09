@@ -25,13 +25,19 @@ import Img16 from '../assets/product/ear.jpg';
 import Img17 from '../assets/product/ipad.jpg';
 import Img18 from '../assets/product/vr.jpg';
 
-const ProductsData: Product[] = [
+export const ProductsData: Product[] = [
   {
     id: 1,
     img: Img1,
     title: "Playstation 5",
     price: 299,
     aosDelay: "300",
+    rating: 4.8,
+    reviewCount: 210,
+    sold: 100,
+    description: "Nice Product ",
+    longDescription: "Amazing",
+    
   },
    {
     id: 2,
@@ -39,6 +45,9 @@ const ProductsData: Product[] = [
     title: "Xbox Series X",
     price: 450,
     aosDelay: "0",
+    rating: 4.5,
+    reviewCount: 210,
+    sold: 50,
   },
   {
     id: 3,
@@ -46,6 +55,9 @@ const ProductsData: Product[] = [
     title: "Nintendo Switch",
     price: 220,
     aosDelay: "0",
+    rating: 4.0,
+    reviewCount: 210,
+    sold: 150,
   },
   {
     id: 4,
@@ -53,6 +65,9 @@ const ProductsData: Product[] = [
     title: "Samsung Galaxy",
     price: 799,
     aosDelay: "0",
+    rating: 5.5,
+    reviewCount: 210,
+    sold: 200,
   },
   {
     id: 5,
@@ -60,6 +75,9 @@ const ProductsData: Product[] = [
     title: "Apple Laptop",
     price: 1200,
     aosDelay: "0",
+    rating: 5.0,
+    reviewCount: 210,
+    sold: 250,
   },
   {
     id: 7,
@@ -67,6 +85,9 @@ const ProductsData: Product[] = [
     title: "Samsung Laptop",
     price: 1500,
     aosDelay: "0",
+    rating: 3.8,
+    reviewCount: 210,
+    sold: 100,
   },
   {
     id: 9,
@@ -74,6 +95,9 @@ const ProductsData: Product[] = [
     title: "Samsung Odessey G9 Oled",
     price: 1999,
     aosDelay: "0",
+    rating: 6.0,
+    reviewCount: 210,
+    sold: 300,
   },
   {
     id: 10,
@@ -81,6 +105,9 @@ const ProductsData: Product[] = [
     title: "Razer Mouse & Keybaord",
     price: 150,
     aosDelay: "0",
+    rating: 5.5,
+    reviewCount: 210,
+    sold: 350,
   },
   {
     id: 11,
@@ -88,6 +115,9 @@ const ProductsData: Product[] = [
     title: "Razer Chair",
     price: 300,
     aosDelay: "0",
+    rating: 4.8,
+    reviewCount: 210,
+    sold: 50,
   },
   {
     id: 12,
@@ -95,6 +125,9 @@ const ProductsData: Product[] = [
     title: "4k Blu Ray Player",
     price: 450,
     aosDelay: "0",
+    rating: 4.9,
+    reviewCount: 210,
+    sold: 100,
   },
   {
     id: 13,
@@ -102,6 +135,9 @@ const ProductsData: Product[] = [
     title: "Beats",
     price: 500,
     aosDelay: "0",
+    rating: 5.1,
+    reviewCount: 210,
+    sold: 75,
   },
   {
     id: 14,
@@ -109,6 +145,9 @@ const ProductsData: Product[] = [
     title: "GTA 6",
     price: 99,
     aosDelay: "0",
+    rating: 9.9,
+    reviewCount: 210,
+    sold: 1000,
   },
   {
     id: 15,
@@ -116,6 +155,9 @@ const ProductsData: Product[] = [
     title: "Iphone Charger",
     price: 20,
     aosDelay: "0",
+    rating: 7.0,
+    reviewCount: 210,
+    sold: 400,
   },
   {
     id: 16,
@@ -123,6 +165,9 @@ const ProductsData: Product[] = [
     title: "Samsung Earbuds",
     price: 250,
     aosDelay: "0",
+    rating: 4.9,
+    reviewCount: 210,
+    sold: 1000,
   },
   {
     id: 17,
@@ -130,6 +175,9 @@ const ProductsData: Product[] = [
     title: "Apple Ipad Pro",
     price: 2000,
     aosDelay: "0",
+    rating: 7.5,
+    reviewCount: 210,
+    sold: 150,
   },
   {
     id: 18,
@@ -137,6 +185,9 @@ const ProductsData: Product[] = [
     title: "Playstation",
     price: 299,
     aosDelay: "0",
+    rating: 6.8,
+    reviewCount: 210,
+    sold: 100,
   },
 
   
@@ -149,6 +200,8 @@ const Products: React.FC = () => {
     dispatch(addToCart(product)); // 👈 now updates Redux!
      toast.success(`${product.title} has been added to your cart!`);
   };
+
+  
 
   return (
     <div className="container">

@@ -15,6 +15,8 @@ import Blogs from "./components/Blog";
 import Partnership from "./components/Partnership";
 import Footer from "./components/Footer";
 import CheckoutPage from "./pages/CheckoutPage";
+import OrderSummary from "./pages/OrderSummary";
+
 
 
 const BannerData = {
@@ -52,8 +54,8 @@ const App = () => {
         } />
         <Route path="/cart" element={<CartPage />}/>
         <Route path="/checkout" element={<CheckoutPage />}/>
-        
-
+        <Route path="/order-summary" element={<OrderSummary />}/>
+      
       </Routes>
     </>
   );

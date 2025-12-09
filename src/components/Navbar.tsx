@@ -3,6 +3,7 @@ import { IoMdSearch } from "react-icons/io";
 import { FaOpencart } from "react-icons/fa6";
 import CartButton from "./CartButton";
 
+
 const MenuLinks = [
     {
         id: 1,
@@ -43,7 +44,7 @@ const Navbar = () => {
                         tracking-widset text-2xl uppercase
                         sm:text-3xl"
                         >
-                            Gadget Star
+                            Tech Star
                         </a>
                         {/* Menu Items */}
                         <div className="hidden lg:block">
@@ -69,7 +70,7 @@ const Navbar = () => {
                     {/* Navbar Right Section */}
                     <div className="flex justify-between items-center gap-4">
                     {/* Search Bar section */}
-        <div className="relative group hidden sm:block">
+                     <div className="relative group hidden sm:block">
                     <input type="text" placeholder="Search" className="
                     search-bar
                     "/>

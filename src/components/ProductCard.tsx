@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
-export type Product = {
+export interface Product {
   id: number;
   img: string;
   title: string;
   price: number;
   aosDelay?: string;
-};
+  description?: string;
+  longDescription?: string;
+  rating?: number;
+  reviewCount?: number;
+  sold?: number;
+}
 
 type ProductCardProps = {
   data: Product[];
@@ -15,45 +23,47 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ data, onAddToCart }) => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   return (
     <div className="mb-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 place-items-center">
-        {data.map((item) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        {data.map((product) => (
           <div
-            key={item.id}
+            key={product.id}
             data-aos="fade-up"
-            data-aos-delay={item.aosDelay}
-            className="group"
+            data-aos-delay={product.aosDelay}
+            className="border rounded-xl shadow-md p-4 bg-white hover:shadow-lg transition"
           >
-            <div className="relative">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="h-[180px] w-[260px] object-cover rounded-md"
-              />
+            <img
+              src={product.img}
+              alt={product.title}
+              className="w-full h-40 object-contain"
+            />
 
-              <div className="hidden group-hover:flex absolute
-                top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 
-                h-full w-full text-center
-                group-hover:backdrop-blur-sm justify-center
-                items-center duration-200"
-              >
-                <Button
-                  text="Add to cart"
-                  bgColor="bg-primary"
-                  textColor="text-white"
-                  handler={() => onAddToCart(item)}
-                />
-              </div>
-            </div>
+            <h3 className="font-semibold text-lg mt-3">{product.title}</h3>
+            <p className="text--700">${product.price}</p>
 
-            <div className="leading-7">
-              
-              <h2 className="font-semibold">{item.title}</h2>
-              <h2 className="font-bold">${item.price}</h2>
-            </div>
+            <div className="flex items-center gap-2 text-sm text-yellow-500 mt-1">
+  ⭐ {product.rating} 
+  <span className="text-gray-500">({product.reviewCount})</span>
+</div>
+
+<p className="text-sm text-gray-500">Sold: {product.sold}</p>
+
+
+            <button
+              onClick={() => onAddToCart(product)}
+              className="mt-3 w-full bg-blue-600 text-white py-2 rounded-lg hover:opacity-80 transition"
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
+
       </div>
     </div>
   );
