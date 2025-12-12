@@ -38,7 +38,12 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={
-          <div className="pt-20">
+          <main 
+          className="
+            pt-16 sm:pt-20
+            px-4 sm:px-6 lg:px-8
+            max-w-7xl mx-auto
+            space-y-16 sm:space-y-20">
             <Hero />
             <Category />
             <Category2 />
@@ -49,7 +54,7 @@ const App = () => {
             <Blogs />
             <Partnership />
             <Footer />
-          </div>
+          </main>
         } />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
