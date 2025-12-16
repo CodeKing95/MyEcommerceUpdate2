@@ -16,6 +16,8 @@ import Partnership from "./components/Partnership";
 import Footer from "./components/Footer";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSummary from "./pages/OrderSummary";
+import { ProductsData } from "./components/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 const BannerData = {
   discount: "30% OFF",
@@ -33,7 +35,11 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
-      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Navbar 
+       searchTerm={searchTerm} 
+       setSearchTerm={setSearchTerm} 
+       products={ProductsData}
+       />
       <Toaster position="top-center" reverseOrder={false} />
 
       <Routes>
@@ -59,6 +65,7 @@ const App = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-summary" element={<OrderSummary />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
 
 
       </Routes>

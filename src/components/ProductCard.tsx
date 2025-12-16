@@ -42,8 +42,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ data, onAddToCart }) => {
               className="w-full h-40 object-contain"
             />
 
-            <h3 className="font-semibold text-lg mt-3">{product.title}</h3>
-            <p className="text--700">${product.price}</p>
+            <h3 className="font-semibold text-lg mt-3">
+              {product.title}
+            </h3>
+
+            <p className="text--700">
+              ${product.price}
+          </p>
 
             <div className="flex items-center gap-2 text-sm text-yellow-500 mt-1">
               ⭐ {product.rating}
