@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -36,27 +37,37 @@ const ProductCard: React.FC<ProductCardProps> = ({ data, onAddToCart }) => {
             data-aos-delay={product.aosDelay}
             className="border rounded-xl shadow-md p-4 bg-white hover:shadow-lg transition"
           >
-            <img
-              src={product.img}
-              alt={product.title}
-              className="w-full h-40 object-contain"
-            />
+            {/* CLICKABLE IMAGE */}
+            <Link to={`/product/${product.id}`}>
+              <img
+                src={product.img}
+                alt={product.title}
+                className="w-full h-40 object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+              />
+            </Link>
 
             <h3 className="font-semibold text-lg mt-3">
               {product.title}
             </h3>
 
-            <p className="text--700">
+            <p className="text-gray-700 font-medium">
               ${product.price}
-          </p>
+            </p>
 
-            <div className="flex items-center gap-2 text-sm text-yellow-500 mt-1">
-              ⭐ {product.rating}
-              <span className="text-gray-500">({product.reviewCount})</span>
-            </div>
+            {product.rating && (
+              <div className="flex items-center gap-2 text-sm text-yellow-500 mt-1">
+                ⭐ {product.rating}
+                <span className="text-gray-500">
+                  ({product.reviewCount})
+                </span>
+              </div>
+            )}
 
-            <p className="text-sm text-gray-500">Sold: {product.sold}</p>
-
+            {product.sold && (
+              <p className="text-sm text-gray-500">
+                Sold: {product.sold}
+              </p>
+            )}
 
             <button
               onClick={() => onAddToCart(product)}

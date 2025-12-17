@@ -138,3 +138,69 @@
     text-align: left;
   }
 }
+
+/* =====================================================
+   ORDER STATUS TIMELINE
+===================================================== */
+
+.order-timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.order-timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 6%;
+  right: 6%;
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  z-index: 0;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.timeline-step p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.timeline-step .dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e5e7eb;
+}
+
+.timeline-step.active {
+  color: #1d4ed8;
+}
+
+.timeline-step.active .dot {
+  background: #1d4ed8;
+  box-shadow: 0 0 10px rgba(29, 78, 216, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .order-timeline {
+    gap: 10px;
+  }
+
+  .timeline-step p {
+    font-size: 0.8rem;
+  }
+}
+

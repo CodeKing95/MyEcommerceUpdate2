@@ -77,3 +77,4 @@ export default defineConfig([
 # ReactTypeScript5
 # EcommerceUpdate
 # MyEcommerceUpdate
+# MyEcommerceUpdate2

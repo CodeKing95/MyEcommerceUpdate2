@@ -13,25 +13,52 @@ const ProductDetails = () => {
   );
 
   if (!product) {
-    return <p className="mt-24 text-center">Product not found</p>;
+    return (
+      <div className="mt-24 text-center text-xl">
+        Product not found
+      </div>
+    );
   }
 
   return (
     <div className="container mx-auto mt-24 px-4">
-      <div className="grid md:grid-cols-2 gap-10">
-        <img
-          src={product.img}
-          alt={product.title}
-          className="w-full max-h-96 object-contain"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
+        {/* PRODUCT IMAGE */}
+        <div className="flex justify-center">
+          <img
+            src={product.img}
+            alt={product.title}
+            className="w-full max-w-md max-h-96 object-contain rounded-lg shadow-md"
+          />
+        </div>
+
+        {/* PRODUCT DETAILS */}
         <div>
-          <h1 className="text-3xl font-bold">{product.title}</h1>
-          <p className="text-xl text-blue-600 mt-2">
+          <h1 className="text-3xl font-bold mb-2">
+            {product.title}
+          </h1>
+
+          <p className="text-2xl text-blue-600 font-semibold mb-4">
             ${product.price}
           </p>
 
-          <p className="mt-4 text-gray-600">
+          {product.rating && (
+            <p className="text-yellow-500 mb-2">
+              ⭐ {product.rating}{" "}
+              <span className="text-gray-500">
+                ({product.reviewCount} reviews)
+              </span>
+            </p>
+          )}
+
+          {product.sold && (
+            <p className="text-sm text-gray-500 mb-4">
+              Sold: {product.sold}
+            </p>
+          )}
+
+          <p className="text-gray-600 leading-relaxed mb-6">
             {product.longDescription || product.description}
           </p>
 
@@ -40,11 +67,12 @@ const ProductDetails = () => {
               dispatch(addToCart(product));
               toast.success(`${product.title} added to cart`);
             }}
-            className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:opacity-80"
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:opacity-80 transition"
           >
             Add to Cart
           </button>
         </div>
+
       </div>
     </div>
   );

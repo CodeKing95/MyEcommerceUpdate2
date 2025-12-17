@@ -46,6 +46,29 @@ const OrderSummary = () => {
           ))}
         </div>
 
+        {/* ORDER STATUS TIMELINE */}
+<div className="order-box">
+  <h3>📦 Order Status</h3>
+
+  <div className="order-timeline">
+    <div className="timeline-step active">
+      <span className="dot"></span>
+      <p>Confirmed</p>
+    </div>
+
+    <div className="timeline-step active">
+      <span className="dot"></span>
+      <p>Shipped</p>
+    </div>
+
+    <div className="timeline-step">
+      <span className="dot"></span>
+      <p>Delivered</p>
+    </div>
+  </div>
+</div>
+
+
         {/* Payment Summary */}
         <div className="order-box">
           <h3>💳 Payment Method</h3>
